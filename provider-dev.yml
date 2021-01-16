@@ -1,0 +1,30 @@
+server:
+  # 应用服务 WEB 访问端口  ${port:如果引入参数$port不存在，则使用默认端口9091}
+  port: ${port:9091}
+spring:
+  application:
+    #服务名称建议使用中划线，下划线可能导致一些服务无法识别
+    name: provider-service
+  # 数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: defaultDataSource
+    password: root
+    url: jdbc:mysql://localhost:3306/springcloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+mybatis:
+  #下面这些内容是为了让MyBatis映射
+  mapper-locations: classpath:mappers/*xml
+  type-aliases-package: com.itheima.mybatis.pojo
+
+# eureka注册中心地址
+eureka:
+  client:
+    service-url.defaultZone: http://localhost:10086/eureka
+    #向注册中心请求获取服务列表间隔时间
+    registry-fetch-interval-seconds: 10
+  instance:
+    #eureka服务实例的域名，如果不配置这个，可能会获取为当前电脑的名称
+    hostname: localhost
+    #服务续约时间,默认30秒
+    lease-renewal-interval-in-seconds: 10    
