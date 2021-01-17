@@ -27,4 +27,6 @@ eureka:
     #eureka服务实例的域名，如果不配置这个，可能会获取为当前电脑的名称
     hostname: localhost
     #服务续约时间,默认30秒
-    lease-renewal-interval-in-seconds: 10    
+    lease-renewal-interval-in-seconds: 10
+#测试一下配置项变化
+mytest.name: pipixia
